@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 
 //example3
-var destination = fs.createWriteStream('./downloads/craigslist.html');
+var destination = fs.createWriteStream('./downloads/fdsfds.html');
 var url = "https://orangecounty.craigslist.org/search/sof";
 request(url)
   .pipe(destination)
