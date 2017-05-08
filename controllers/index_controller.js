@@ -11,7 +11,7 @@ function index(req, res) {
         var url = $(this).attr('href');
         var title = $(this).attr('title');
         jobs.push({
-          url: 'indeed.com' + url,
+          url: 'https://www.indeed.com' + url,
           title: title
         });
       })

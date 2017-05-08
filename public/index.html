@@ -13,18 +13,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
   </head>
   <body ng-controller="crawlerController">
-    <div class="container">
+
+
+
+
+
+    <!-- <div class="container">
+      <div class="customNav">
+        <ul class="customNavItems">
+          <li><a ui-sref="index">Home</a></li>
+
+        </ul>
+
+
+      </div> -->
 
       <h1 class="col-md-11 text-center">Welcome to your Job list!</h1>
       <div class="row col-md-11 text-center">
         <button class="btn btn-primary" ng-click="getJobs()" >Get Jobs</button>
       </div>
 
-      <div class="row">
+
       <div class="jobContainer col-md-11" ng-repeat='job in jobs'>
-        <a href="{{ job.url }}" class="list-group-item">{{ job.title }}</a>
-        <button class="add btn-primary">Add job to list</button>
-      </div>
+
+        <a href="{{ job.url }}" class="list-group-item col-md-4 pull-left">{{ job.title }}</a>
+        <button class="add btn-primary col-md-4 pull-right" ng-click="addJob()">Add job to list</button>
       </div>
 
 
@@ -35,14 +48,8 @@
 <script type="text/javascript" src="./app.js"></script>
 <!-- Controllers -->
 <script type="text/javascript" src="./controllers/crawlerController.js"></script>
-<!-- <script type="text/javascript" src="./controllers/indexController.js"></script>
-<script type="text/javascript" src="./controllers/ticketController.js"></script>
-<script type="text/javascript" src="./controllers/userController.js"></script>
-<script type="text/javascript" src="./controllers/showController.js"></script> -->
+
 <!-- Services -->
-<!-- <script type="text/javascript" src="./services/userService.js"></script>
-<script type="text/javascript" src="./services/artistService.js"></script>
-<script type="text/javascript" src="./services/showService.js"></script>
-<script type="text/javascript" src="./services/ticketService.js"></script> -->
+<script type="text/javascript" src="../services/crawlerService.js"></script>
   </body>
 </html>
