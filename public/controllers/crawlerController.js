@@ -13,8 +13,9 @@ angular.module('crawlerApp')
         })
       };
 
-      //new function that works on click
-      $scope.addJob = function() {
-        console.log("add button works on click")
-      }
+      //new function
+  $scope.addJob = function() {
+    console.log("the add button works")
+  }
+
   });
