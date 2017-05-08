@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="crawlerApp">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -9,10 +9,13 @@
   <!-- Angular UI Router CDN 0.4.2 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
   </head>
-  <body>
+  <body ng-controller="crawlerController">
     <h1>THIS WORKS</h1>
-    <body>
-
+    <button class="btn btn-primary" ng-click="getJobs()" >Get Jobs</button>
+    <div ng-repeat='job in jobs'>
+      {{ job.url }}
+      {{ job.title }}
+    </div>
 
 
 <div ui-view></div>
