@@ -35,9 +35,8 @@
 
 
       <div class="jobContainer col-md-11" ng-repeat='job in jobs'>
-
         <a href="{{ job.url }}" class="list-group-item col-md-4 pull-left">{{ job.title }}</a>
-        <button class="add btn-primary col-md-4 pull-right" ng-click="addJob()">Add job to list</button>
+        <button class="add btn-primary col-md-4 pull-right" ng-model="jobs" ng-click="addJob($index)">Add job to list</button>
       </div>
 
 

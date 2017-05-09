@@ -1,7 +1,7 @@
 angular.module('crawlerApp')
   .controller('crawlerController', function($scope, $http) {
 
-
+     $scope._jobs = [];
       $scope.getJobs = function() {
         $http.get('/jobs')
         .success(function(response) {
@@ -14,8 +14,14 @@ angular.module('crawlerApp')
       };
 
       //new function
-  $scope.addJob = function() {
-    console.log("the add button works")
+  $scope.addJob = function(inx) {
+    var inxAdd = $scope.jobs[inx];
+    $scope._jobs.push({
+      title: inxAdd.title,
+      url : inxAdd.url
+    });
+    console.log($scope._jobs);
   }
+
 
   });
