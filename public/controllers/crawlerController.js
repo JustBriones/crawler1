@@ -20,7 +20,9 @@ angular.module('crawlerApp')
       title: inxAdd.title,
       url : inxAdd.url
     });
-    console.log($scope._jobs);
+    // console.log($scope._jobs);
+    $scope.jobs.splice(inx, 1);
+
   }
 
 
