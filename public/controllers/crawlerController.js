@@ -17,16 +17,11 @@ angular.module('crawlerApp')
   $scope.addJob = function(job) {
     if($scope._jobs.indexOf(job) < 0) {
       $scope._jobs.push(job);
+      job.showButton = true;
     }
     else {
       console.log("Already here");
     }
-    // var inxAdd = $scope.jobs[inx];
-    // $scope._jobs.push({
-    //   title: inxAdd.title,
-    //   url : inxAdd.url
-    // });
-    // $scope.jobs.splice(inx, 1);
   }
 
   $scope.deleteJob = function(inx) {
@@ -40,5 +35,6 @@ angular.module('crawlerApp')
   $scope.updateNote = function(job) {
     job.showNote = false
   }
+
 
   });

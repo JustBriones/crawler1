@@ -14,7 +14,8 @@ function index(req, res) {
           url: 'https://www.indeed.com' + url,
           title: title,
           note: "",
-          showNote: false
+          showNote: false,
+          showButton: false
         });
       })
       console.log(jobs);

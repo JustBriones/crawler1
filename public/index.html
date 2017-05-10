@@ -7,7 +7,7 @@
     <!-- Bootstrap CDN 3.3.7 -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="./css/styles.css">
     <!-- Angular CDN 1.5.7 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
 
@@ -19,30 +19,42 @@
 
 
 <div class="container">
-      <h1 class="col-md-11 text-center">Welcome the Job Crawler</h1>
-      <div class="row col-md-11 text-center">
+      <h1 class="text-center">Welcome to the Job Crawler</h1>
+
+      <p class="text-center">Click on "get jobs" to get started. This will trigger the crawler to pull front-end engineer job postings from indeed.com!</p>
+
+      <div class="row text-center">
         <button class="btn btn-primary" ng-click="getJobs()" >Get Jobs</button>
       </div>
 
     <div class="jobContainer">
-      <div class="jobEntry col-md-11" ng-repeat='job in jobs'>
-        <a href="{{ job.url }}" class="list-group-item col-md-4 pull-left">{{ job.title }}</a>
-        <button class="add btn-primary btn pull-right" ng-model="jobs" ng-click="addJob(job)">Add job to list</button>
+      <div class="jobEntry col-md-12" ng-repeat='job in jobs'>
+        <a href="{{ job.url }}" class="col-md-4 pull-left">{{ job.title }}</a>
+
+        <button class="add btn-primary btn pull-right" ng-model="jobs" ng-click="addJob(job)" ng-show="!job.showButton">Add job to list</button>
+
+        <button class="add btn-success btn pull-right" ng-model="jobs" ng-show="job.showButton">Added!</button>
+
       </div>
     </div>
 
       <div class="jobList">
         <h1 class="jobCart text-center">Job List Cart</h1>
-        <div class="listItem col-md-11" ng-repeat='job in _jobs'>
-          <button class="add btn-danger btn pull-right" ng-model="jobs" ng-click="deleteJob($index)">Delete job entry</button>
-          <div class="form-group">
-            <a href="{{ job.url }}" class="list-group-item col-md-4 pull-left">{{ job.title }}</a>
-             <input type="text" class="form-control" ng-show="!job.showNote" ng-model="job.note" />
-             <p ng-show="job.showNote"> {{ job.note }}</p>
-             <button class="btn btn-success" ng-click="saveNote(job)" ng-show="!job.showNote">Save</button>
-             <button class="btn btn-info" ng-click="updateNote(job)" ng-show="job.showNote">Update</button>
+        <p class="text-center">You can add notes to jobs in your job cart, save them, update them or delete the entire job from the job cart entirely. Notes could include application status, interview given, offer given, etc.</p>
+        <div class="listItem col-md-12" ng-repeat='job in _jobs'>
+              <button class="add btn-danger btn pull-right" ng-model="jobs" ng-click="deleteJob($index)">Delete job entry</button>
 
-         </div>
+              <div class="form-group col-md-4">
+              <a href="{{ job.url }}" class="">{{ job.title }}</a>
+
+              <input type="text" class="form-control" ng-show="!job.showNote" ng-model="job.note" />
+
+              <p ng-show="job.showNote"> {{ job.note }}</p>
+
+              <button class="btn btn-success pull-left" ng-click="saveNote(job)" ng-show="!job.showNote">Save</button>
+              <button class="btn btn-info pull-left" ng-click="updateNote(job)" ng-show="job.showNote">Update</button>
+
+             </div>
         </div>
 
 

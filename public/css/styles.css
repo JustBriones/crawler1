@@ -1,5 +1,14 @@
-
+body {
+  background: hsla(240, 84%, 48%, 0.04);
+}
 .jobContainer {
-  min-height: 600px;
-  background: grey;
+  min-height: 660px;
+}
+.jobEntry, .listItem {
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 8px;
+  padding: 5px;
 }
