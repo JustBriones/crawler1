@@ -6,6 +6,8 @@
 
     <!-- Bootstrap CDN 3.3.7 -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/styles.css">
     <!-- Angular CDN 1.5.7 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
 
@@ -16,32 +18,38 @@
 
 
 
-
-
-    <!-- <div class="container">
-      <div class="customNav">
-        <ul class="customNavItems">
-          <li><a ui-sref="index">Home</a></li>
-
-        </ul>
-
-
-      </div> -->
-
-      <h1 class="col-md-11 text-center">Welcome to your Job list!</h1>
+<div class="container">
+      <h1 class="col-md-11 text-center">Welcome the Job Crawler</h1>
       <div class="row col-md-11 text-center">
         <button class="btn btn-primary" ng-click="getJobs()" >Get Jobs</button>
       </div>
 
-
-      <div class="jobContainer col-md-11" ng-repeat='job in jobs'>
+    <div class="jobContainer">
+      <div class="jobEntry col-md-11" ng-repeat='job in jobs'>
         <a href="{{ job.url }}" class="list-group-item col-md-4 pull-left">{{ job.title }}</a>
-        <button class="add btn-primary col-md-4 pull-right" ng-model="jobs" ng-click="addJob($index)">Add job to list</button>
+        <button class="add btn-primary btn pull-right" ng-model="jobs" ng-click="addJob(job)">Add job to list</button>
+      </div>
+    </div>
+
+      <div class="jobList">
+        <h1 class="jobCart text-center">Job List Cart</h1>
+        <div class="listItem col-md-11" ng-repeat='job in _jobs'>
+          <button class="add btn-danger btn pull-right" ng-model="jobs" ng-click="deleteJob($index)">Delete job entry</button>
+          <div class="form-group">
+            <a href="{{ job.url }}" class="list-group-item col-md-4 pull-left">{{ job.title }}</a>
+             <input type="text" class="form-control" ng-show="!job.showNote" ng-model="job.note" />
+             <p ng-show="job.showNote"> {{ job.note }}</p>
+             <button class="btn btn-success" ng-click="saveNote(job)" ng-show="!job.showNote">Save</button>
+             <button class="btn btn-info" ng-click="updateNote(job)" ng-show="job.showNote">Update</button>
+
+         </div>
+        </div>
+
+
       </div>
 
+</div>
 
-<div ui-view></div>
-  </div>
 
 <!-- Module -->
 <script type="text/javascript" src="./app.js"></script>

@@ -12,7 +12,9 @@ function index(req, res) {
         var title = $(this).attr('title');
         jobs.push({
           url: 'https://www.indeed.com' + url,
-          title: title
+          title: title,
+          note: "",
+          showNote: false
         });
       })
       console.log(jobs);

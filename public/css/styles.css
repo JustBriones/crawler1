@@ -1,1 +1,5 @@
 
+.jobContainer {
+  min-height: 600px;
+  background: grey;
+}

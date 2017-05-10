@@ -14,16 +14,31 @@ angular.module('crawlerApp')
       };
 
       //new function
-  $scope.addJob = function(inx) {
-    var inxAdd = $scope.jobs[inx];
-    $scope._jobs.push({
-      title: inxAdd.title,
-      url : inxAdd.url
-    });
-    // console.log($scope._jobs);
-    $scope.jobs.splice(inx, 1);
-
+  $scope.addJob = function(job) {
+    if($scope._jobs.indexOf(job) < 0) {
+      $scope._jobs.push(job);
+    }
+    else {
+      console.log("Already here");
+    }
+    // var inxAdd = $scope.jobs[inx];
+    // $scope._jobs.push({
+    //   title: inxAdd.title,
+    //   url : inxAdd.url
+    // });
+    // $scope.jobs.splice(inx, 1);
   }
 
+  $scope.deleteJob = function(inx) {
+    $scope._jobs.splice(inx,1);
+  }
+
+  $scope.saveNote = function(job) {
+    job.showNote = true
+  }
+
+  $scope.updateNote = function(job) {
+    job.showNote = false
+  }
 
   });
