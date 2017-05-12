@@ -1,3 +1,4 @@
+//boiler plate to get server off the ground
 var express = require('express');
 var path = require('path');
 var request = require('request');
@@ -20,4 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
+
+//exports to entire app for use
 module.exports = app;
